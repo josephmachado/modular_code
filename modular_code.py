@@ -70,5 +70,4 @@ if __name__ == "__main__":
     ranked_regions = get_ranked_regions(regional_sales)
     product_sales = get_product_sales(monthly_sales, products)
     final_result = get_final_result(product_sales, ranked_regions, regions)
-
-    print(final_result)
+    print(final_result.select(pl.col("month"), pl.col("product_name"), pl.col("category"), pl.col("region_name"), pl.col("product_sales"), pl.col("regional_sales").alias("region_total_sales"), pl.col("sales_rank")))
